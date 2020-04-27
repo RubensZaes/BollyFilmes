@@ -37,7 +37,7 @@ class FilmesAdapter(private val filmeList: List<ItemFilme>) : RecyclerView.Adapt
         holder.itemTitleTextView.text = currentItem.title
         holder.itemDescriptionTextView.text = currentItem.description
         holder.itemDateTextView.text = currentItem.releaseDate
-        holder.itemAvaliationRatinBar.rating = currentItem.avaliation
+        holder.itemAvaliationRatinBar.rating = currentItem.avaliation.toFloat()
     }
 
     override fun getItemCount(): Int = filmeList.size
