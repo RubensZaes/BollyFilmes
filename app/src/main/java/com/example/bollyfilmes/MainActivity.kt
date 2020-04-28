@@ -2,6 +2,7 @@ package com.example.bollyfilmes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,5 +21,11 @@ class MainActivity : AppCompatActivity() {
 
         recycleView.adapter = FilmesAdapter(filmeList)
         recycleView.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
     }
 }
