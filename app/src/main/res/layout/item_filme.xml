@@ -8,15 +8,15 @@
     <LinearLayout
         android:id="@+id/itemLayoutLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/itemPosterImageView"
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/poster"
             android:scaleType="centerInside"/>
 
         <LinearLayout
@@ -34,7 +34,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Title"
                 android:textColor="@android:color/black"
-                android:textSize="15sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold"/>
 
             <TextView
@@ -44,7 +44,8 @@
                 android:layout_marginTop="5dp"
                 android:maxLength="50"
                 android:text="Description"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
             <TextView
                 android:id="@+id/itemDateTextView"
@@ -52,9 +53,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="27/04/2020"
-                android:textSize="12sp"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
             
             <RatingBar
+                style="@style/Widget.AppCompat.RatingBar.Small"
                 android:id="@+id/itemAvaliationRatinBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
