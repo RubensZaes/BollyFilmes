@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         filmeList.add(ItemFilme("Almeida", "Last Name","05/12/1949",3.0))
         filmeList.add(ItemFilme("Brandão", "Last Name","01/01/1989",2.3))
 
-        recycleView.adapter = FilmesAdapter(filmeList)
-        recycleView.layoutManager = LinearLayoutManager(this)
+        itemRecycleView.adapter = FilmesAdapter(filmeList)
+        itemRecycleView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

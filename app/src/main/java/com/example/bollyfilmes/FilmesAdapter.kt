@@ -3,22 +3,18 @@ package com.example.bollyfilmes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_filme.view.*
 
 class FilmesAdapter(private val filmeList: List<ItemFilme>) : RecyclerView.Adapter<FilmesAdapter.FilmesViewHolder>() {
 
-    class FilmesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    companion object{
+        const val VIEW_TYPE_DESTAQUE = 0
+        const val VIEW_TYPE_ITEM = 1
+    }
 
-//        val cardViewLayout: CardView = itemView.findViewById(R.id.cardViewLayout)
-//        val itemLayoutLinearLayout: LinearLayout = itemView.findViewById(R.id.itemLayoutLinearLayout)
-//        val itemPosterImageView: ImageView = itemView.findViewById(R.id.itemPosterImageView)
-//        val itemTextLinearLayout: LinearLayout = itemView.findViewById(R.id.itemTextLinearLayout)
+    class FilmesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemTitleTextView: TextView = itemView.findViewById(R.id.itemTitleTextView)
         val itemDescriptionTextView: TextView = itemView.findViewById(R.id.itemDescriptionTextView)
         val itemDateTextView: TextView = itemView.findViewById(R.id.itemDateTextView)
@@ -26,7 +22,7 @@ class FilmesAdapter(private val filmeList: List<ItemFilme>) : RecyclerView.Adapt
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_filme, parent, false)
         return FilmesViewHolder(itemView)
     }
@@ -41,4 +37,13 @@ class FilmesAdapter(private val filmeList: List<ItemFilme>) : RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int = filmeList.size
+
+    override fun getItemViewType(position: Int): Int {
+        val type = when (position) {
+            0 -> VIEW_TYPE_DESTAQUE
+            else -> VIEW_TYPE_ITEM
+        }
+        return type
+    }
+
 }
